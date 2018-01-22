@@ -4,6 +4,7 @@ This is a Python framework for writing test automation scenarios using [page obj
 ## Can be tested using framework:
 1. UI - using Selenium WebDriver;
 2. API - using basic Python + my own methods.
+3. Load - using [Locust](https://locust.io/)
 
 ## Instruments using :
 1.  [Selenium WebDriver](http://www.seleniumhq.org/projects/webdriver/) 
