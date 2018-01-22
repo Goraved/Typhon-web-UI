@@ -27,7 +27,7 @@ This is a Python framework for writing test automation scenarios using [page obj
 
 **[Hot to use Allure reports](https://github.com/Goraved/testing_framework/wiki/How-to-use-allure-reports)**
 
-## Attention! If you never work with Python before, you should investigate the next links:
+## Attention! If you have never been working with Python before, you should investigate the next links:
 
 **[SoloLearn](https://www.sololearn.com/Course/Python/)**
 
