@@ -11,19 +11,19 @@ This is a Python framework for writing test automation scenarios using [page obj
 3.  [Allure](http://allure.qatools.ru/)
 
 ## Useful links
-**[Instruction how to start using framework](https://bitbucket.org/RomanPobotin/testframework/wiki/How%20to%20start%20working%20with%20framework)**
+**[Instruction how to start using framework](https://github.com/Goraved/testing_framework/wiki/How-to-start-working-with-framework)**
 
-**[How to change browser](https://bitbucket.org/RomanPobotin/testframework/wiki/How%20to%20change%20browser)**
+**[How to change browser](https://github.com/Goraved/testing_framework/wiki/How-to-change-browser)**
 
-**[How to create locator](https://bitbucket.org/RomanPobotin/testframework/wiki/How%20to%20create%20locator)**
+**[How to create locator](https://github.com/Goraved/testing_framework/wiki/How-to-create-locator)**
 
-**[How to create test method](https://bitbucket.org/RomanPobotin/testframework/wiki/How%20to%20create%20test%20method)**
+**[How to create test method](https://github.com/Goraved/testing_framework/wiki/How-to-create-test-method)**
 
-**[How to create UI test](https://bitbucket.org/RomanPobotin/testframework/wiki/How%20to%20create%20test)**
+**[How to create UI test](https://github.com/Goraved/testing_framework/wiki/How-to-create-UI-test)**
 
-**[How to create API test](https://bitbucket.org/RomanPobotin/testframework/wiki/How%20to%20create%20API%20test)**
+**[How to create API test](https://github.com/Goraved/testing_framework/wiki/How-to-create-API-test)**
 
-**[Hot to use Allure reports](https://bitbucket.org/RomanPobotin/testframework/wiki/How%20to%20use%20allure%20reports)**
+**[Hot to use Allure reports](https://github.com/Goraved/testing_framework/wiki/How-to-use-allure-reports)**
 
 ## Attention! If you never work with Python before, you should investigate the next links:
 
