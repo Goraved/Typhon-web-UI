@@ -39,7 +39,7 @@ echo Cloning gitlab project. Be ready to enter you LDAP credentials
 cd ~/
 mkdir PycharmProjects
 cd PycharmProjects
-git clone https://code.adyax.com/amarkova/Adyax_testing_framework-by-Roman-Pobotin.git
+git clone https://github.com/Goraved/testing_framework.git
 cd ~/
 
 # Running PyCharm
