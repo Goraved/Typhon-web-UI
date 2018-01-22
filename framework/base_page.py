@@ -41,6 +41,7 @@ class BasePage:
 
     # Enter text to web element (textbox, text area etc.)
     def type(self, text, *locator):
+        self.wait_until_element_is_visible(locator)
         element = self.driver.find_element(*locator)
         element.clear()
         element.send_keys(text)
