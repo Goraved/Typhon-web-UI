@@ -6,6 +6,6 @@ dir=$(pwd)
 PYTHONPATH="${PYTHONPATH}:${dir}"
 export PYTHONPATH
 
-virtualenv -p /usr/bin/python3 virtualenv || virtualenv -p /usr/bin/python virtualenv
+virtualenv -p /usr/bin/python3 venv || venv -p /usr/bin/python virtualenv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 sh install_requirements.sh
