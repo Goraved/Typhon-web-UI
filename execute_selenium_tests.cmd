@@ -5,7 +5,7 @@ mkdir %~dp0allureReports\archive\%_now%
 
 
 : Run The tests in project folder
-py.test %~dp0tests\UI\  --alluredir %~dp0allureReports\archive\%_now%
+python -m pytest %~dp0tests\UI\  --alluredir %~dp0allureReports\archive\%_now%
 
 : Environments settings
 copy %~dp0allureReports\environment.properties %~dp0allureReports\archive\%_now%

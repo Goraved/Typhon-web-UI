@@ -2,7 +2,7 @@ from framework.pages.google_search_page import *
 from tests.UI.test_base import TestBase
 
 
-@pytest.allure.feature('Events')
+@pytest.allure.feature('Google')
 class TestGoogle(TestBase):
     @classmethod
     def setUpClass(cls):
