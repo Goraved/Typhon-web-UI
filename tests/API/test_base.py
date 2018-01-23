@@ -74,6 +74,11 @@ def check_types_of_fields(types, response):
         expected_type = types.get(field_type)
         if actual_type != expected_type:
             wrong_types.append('%s is {%s} instead of {%s}' % (field_type, actual_type, expected_type))
+    if len(wrong_types) is 0:
+        wrong_types = None
+    else:
+        ', '.join(wrong_types)
+    return wrong_types
 
 
 # Check that response has needed length limit
@@ -88,7 +93,7 @@ class TestBase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.base_url = MAIN_API_URL
-        cls.access_token = login()
+        # cls.access_token = login() # Only if need Authorization
         cls.response = None
 
     def tearDown(self):

@@ -12,7 +12,7 @@ export PYTHONPATH
 
 # Run The tests in project folder
 
-py.test ${dir}/tests/UI/test_qa_tools.py --alluredir ${dir}/allureReports/archive/${_now}
+py.test ${dir}/tests/API/test_books_api.py --alluredir ${dir}/allureReports/archive/${_now}
 
 ## Environments settings
 cp ${dir}/allureReports/environment.properties ${dir}/allureReports/archive/${_now}
