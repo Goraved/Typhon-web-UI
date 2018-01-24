@@ -31,6 +31,8 @@ This is a Python framework for writing test automation scenarios using [page obj
 
 **[SoloLearn](https://www.sololearn.com/Course/Python/)**
 
+**[DataCamp](https://www.datacamp.com/courses/intro-to-python-for-data-science)**
+
 > Next block (Selenium) needs only for deeper understand of how Selenium works 
 
 ### Selenium
