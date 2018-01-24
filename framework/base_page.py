@@ -82,6 +82,7 @@ class BasePage:
 
     # Hove on web element
     def hover(self, *locator):
+        self.wait_until_element_is_visible(locator)
         element = self.driver.find_element(*locator)
         hover = ActionChains(self.driver).move_to_element(element)
         hover.perform()
