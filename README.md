@@ -1,3 +1,5 @@
+# Welcome to the testing_framework wiki!
+
 ## Description
 This is a Python framework for writing test automation scenarios using [page object pattern](http://selenium-python.readthedocs.io/page-objects.html).
 
@@ -27,9 +29,17 @@ This is a Python framework for writing test automation scenarios using [page obj
 
 **[Hot to use Allure reports](https://github.com/Goraved/testing_framework/wiki/How-to-use-allure-reports)**
 
+**[Base UI methods](https://github.com/Goraved/testing_framework/wiki/Base-UI-methods)**
+
+**[Base API methods](https://github.com/Goraved/testing_framework/wiki/Base-API-methods)**
+
+**[Config file structure](https://github.com/Goraved/testing_framework/wiki/Config-file-structure)**
+
 ## Attention! If you have never been working with Python before, you should investigate the next links:
 
 **[SoloLearn](https://www.sololearn.com/Course/Python/)**
+
+**[DataCamp](https://www.datacamp.com/courses/intro-to-python-for-data-science)**
 
 > Next block (Selenium) needs only for deeper understand of how Selenium works 
 
