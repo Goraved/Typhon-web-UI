@@ -1,18 +1,19 @@
 import time
+
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver import ActionChains
-import os
-
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
-from framework.dictionary import *
+from selenium.webdriver.support.wait import WebDriverWait
 
 from framework.locators import *
-from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage:
+    timeout_sec = 10
+    implicit_sec = 5
+
     def __init__(self, driver, base_url=BASE_URL):
         self.driver = driver
         self.base_url = base_url
@@ -106,10 +107,10 @@ class BasePage:
                 if cycle > 100:
                     raise NameError('Loader was present too long, more than 10 seconds')
         finally:
-            self.driver.implicitly_wait(7)
+            self.driver.implicitly_wait(self.implicit_sec)
 
     # Wait until element will not be visible on the page
-    def wait_until_element_is_visible(self, locator, timeout=7):
+    def wait_until_element_is_visible(self, locator, timeout=timeout_sec):
         try:
             _d = self.driver
             WebDriverWait(_d, timeout).until(EC.visibility_of_element_located(locator))
@@ -135,21 +136,21 @@ class BasePage:
         return True
 
     # Wait until element will not be clickable on the page
-    def wait_until_element_to_be_clickable(self, *locator, timeout=7):
+    def wait_until_element_to_be_clickable(self, *locator, timeout=timeout_sec):
         try:
             WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(*locator))
         except TimeoutException:
             raise AssertionError('Element missed. It takes more than {} sec to load an element'.format(timeout))
 
     # Wait until element be present not only in DOM, but on page also, and will have width and height > 0
-    def wait_until_visibility_of_element_located(self, locator, timeout=7):
+    def wait_until_visibility_of_element_located(self, locator, timeout=timeout_sec):
         try:
             WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
         except TimeoutException:
             raise AssertionError('Element missed. It takes more than {} sec to load an element'.format(timeout))
 
     # Wait until element be invisible
-    def wait_until_invisibility_of_element_located(self, locator, timeout=7):
+    def wait_until_invisibility_of_element_located(self, locator, timeout=timeout_sec):
         try:
             WebDriverWait(self.driver, timeout).until(EC.invisibility_of_element_located(locator))
         except TimeoutException:
@@ -164,7 +165,7 @@ class BasePage:
             return None
 
     # Check if pop up present
-    def is_popup_present(self, *locator, timeout=5):
+    def is_popup_present(self, *locator, timeout=timeout_sec):
         _d = self.driver
         try:
             WebDriverWait(_d, timeout).until(lambda _d: _d.find_element(*locator))
@@ -192,9 +193,9 @@ class BasePage:
 
     # Get count of elements by locator
     def get_number_of_elements(self, *locator):
-        self.driver.implicitly_wait(5)
+        self.driver.implicitly_wait(self.implicit_sec)
         number_of_elements = len(self.driver.find_elements(*locator))
-        self.driver.implicitly_wait(20)
+        self.driver.implicitly_wait(self.implicit_sec)
         return number_of_elements
 
     # Remove web element using JS
