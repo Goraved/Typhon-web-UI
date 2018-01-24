@@ -22,8 +22,6 @@ class Driver:
         driver = None
         operation_system = platform.system()
         arch = platform.architecture()
-        # if os.environ.get('SELENIUM_CONNECTION') == 'LOCAL':
-        #     path = os.environ.get('SELENIUM_DRIVER_PATH')
         if BROWSER == 'chrome':
             driver = webdriver.Chrome(ChromeDriverManager().install())
         elif BROWSER == 'firefox':
@@ -41,11 +39,6 @@ class Driver:
                 driver = webdriver.Ie(executable_path=IEDriverManager(os_type="Win32").install())
             elif arch[0] == "64bit":
                 driver = webdriver.Ie(executable_path=IEDriverManager(os_type="x64").install())
-        # # else:
-        #     if os.environ.get('SELENIUM_CONNECTION') == 'REMOTE':
-        #         driver = webdriver.Remote(
-        #             command_executor=os.environ.get('SELENIUM_RC_URL'),
-        #             desired_capabilities=BROWSERS[os.environ.get('SELENIUM_BROWSER')])
         return Driver.add_driver_settings(driver)
 
     @staticmethod
