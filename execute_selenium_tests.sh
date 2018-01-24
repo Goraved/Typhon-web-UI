@@ -1,5 +1,5 @@
 #!/bin/bash
-source virtualenv/bin/activate
+source venv/bin/activate
 
 _now=$(date +%Y-%m-%d_%H:%M:%S)
 dir=$(pwd)
