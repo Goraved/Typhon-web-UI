@@ -9,9 +9,12 @@ dir=$(pwd)
 PYTHONPATH="${PYTHONPATH}:${dir}"
 export PYTHONPATH
 
+## Set environment
+env=$1
+run_tests=$2
+sed -i '' "1,/\(ENVIRONEMENT = \).*/ s/\(ENVIRONEMENT = \).*/ENVIRONEMENT = '${env}'/"  ${dir}/configuration/config_parse.py
 
 # Run The tests in project folder
-
 py.test ${dir}/tests/API/test_books_api.py --alluredir ${dir}/allureReports/archive/${_now}
 
 ## Environments settings
