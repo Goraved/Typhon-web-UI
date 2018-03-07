@@ -1,6 +1,7 @@
 import unittest
 from enum import Enum
 
+import gevent
 import selenium
 from framework.driver_wrapper import Driver
 from framework.utilities import *
@@ -18,6 +19,7 @@ class TestBase(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
+        gevent.sleep(2)
 
     def tearDown(self):
         if not self.properties:
@@ -34,8 +36,11 @@ class TestBase(unittest.TestCase):
     def fix_properties(self):
         try:
             os.remove(ROOT_DIR + "/allureReports/environment.properties")
+        except FileNotFoundError:
+            "nothing"
         except:
-            """nothing"""
+            gevent.sleep(5)
+            os.remove(ROOT_DIR + "/allureReports/environment.properties")
         f = open(ROOT_DIR + "/allureReports/environment.properties", "w+")
         f.write("Environment %s\n" % ENVIRONEMENT.upper())
         f.write("URL %s\n" % MAIN_UI_URL)

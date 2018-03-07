@@ -23,10 +23,12 @@ py==1.4.34
 pytest==3.2.3
 PyVirtualDisplay==0.2.1
 requests==2.18.4
-selenium==3.8.0
+selenium==3.10.0
 six==1.10.0
 urllib3==1.22
 virtualenv==15.1.0
 webdriver-manager==1.4.5
 yarg==0.1.9
 locust==0.8
+pytest-xdist==1.22.2
+gevent

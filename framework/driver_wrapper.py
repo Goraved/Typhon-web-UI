@@ -1,5 +1,5 @@
+import gevent
 from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import IEDriverManager
@@ -34,6 +34,7 @@ class Driver:
 
     @staticmethod
     def add_driver_settings(driver):
+        gevent.sleep(2)
         driver.implicitly_wait(5)
         driver.set_page_load_timeout(30)
         driver.set_window_size(1280, 1024)
