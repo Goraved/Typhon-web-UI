@@ -15,7 +15,7 @@ run_tests=$2
 sed -i '' "1,/\(ENVIRONEMENT = \).*/ s/\(ENVIRONEMENT = \).*/ENVIRONEMENT = '${env}'/"  ${dir}/configuration/config_parse.py
 
 # Run The tests in project folder
-py.test ${dir}/tests/${run_tests} --alluredir ${dir}/allureReports/archive/${_now}
+py.test -n auto --dist=loadfile --tb=no ${dir}/tests/${run_tests} --alluredir ${dir}/allureReports/archive/${_now}
 
 ## Environments settings
 cp ${dir}/allureReports/environment.properties ${dir}/allureReports/archive/${_now}

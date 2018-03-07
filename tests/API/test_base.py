@@ -1,7 +1,10 @@
-import unittest, json, requests
+import requests
+import unittest
 
-from framework.utilities import *
+import gevent
+
 from framework.dictionary import DICTIONARY
+from framework.utilities import *
 
 
 def login():
@@ -19,8 +22,11 @@ def login():
 def fix_properties():
     try:
         os.remove(ROOT_DIR + "/allureReports/environment.properties")
+    except FileNotFoundError:
+        "nothing"
     except:
-        """nothing"""
+        gevent.sleep(5)
+        os.remove(ROOT_DIR + "/allureReports/environment.properties")
     f = open(ROOT_DIR + "/allureReports/environment.properties", "w+")
     f.write("Environment %s\n" % ENVIRONEMENT.upper())
     f.write("URL %s\n" % MAIN_API_URL)
