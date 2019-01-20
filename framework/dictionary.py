@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from framework.locators import *
-
-DICTIONARY = {
-    'admin_login':'login',
-    'admin_pass':'pass'
-}
+from framework.ui.locators.google_search_locators import GoogleSearchLocators
 
 PAGES = {
     'gmail': GoogleSearchLocators.gmail_icon,

@@ -1,10 +1,11 @@
-import pytest
-from framework.locators import *
-from framework.base_page import BasePage
+import allure
+
+from framework.ui.base_page import BasePage
+from framework.ui.locators.order_form_locators import OrderFormtLocators
 
 
 class QaCartPage(BasePage):
-    @pytest.allure.step('Purchase all items in the cart')
+    @allure.step('Purchase all items in the cart')
     def purchase_item(self):
         self.click(*OrderFormtLocators.continue_button)
         self.type('email@email.email', *OrderFormtLocators.email_address_input)

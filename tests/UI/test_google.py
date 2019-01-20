@@ -1,5 +1,5 @@
-from framework.pages.google_search_page import *
-from tests.UI.test_base import TestBase
+from framework.ui.pages.google_search_page import GoogleSearchPage
+from tests.UI.test_base import *
 
 
 @pytest.allure.feature('Google')

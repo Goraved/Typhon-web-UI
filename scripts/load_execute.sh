@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Setup
+cd ..
 dir=$(pwd)
 PYTHONPATH="${PYTHONPATH}:${dir}"
 export PYTHONPATH
