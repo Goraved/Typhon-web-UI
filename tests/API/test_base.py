@@ -1,17 +1,17 @@
-import requests
 import unittest
 
+import allure
 import gevent
+import requests
 
-from framework.dictionary import DICTIONARY
 from framework.utilities import *
 
 
 def login():
     url = MAIN_API_URL + '/users/login'
     data = dict(
-        username=DICTIONARY.get('admin_login'),
-        password=DICTIONARY.get('admin_pass')
+        username=config.get('CREDENTIALS', 'admin_login'),
+        password=config.get('CREDENTIALS', 'admin_pass')
     )
     content_type = 'application/x-www-form-urlencoded'
     response = requests.post(url, data, content_type)
@@ -21,13 +21,13 @@ def login():
 
 def fix_properties():
     try:
-        os.remove(ROOT_DIR + "/allureReports/environment.properties")
+        os.remove(ROOT_DIR + "/allure_reports/environment.properties")
     except FileNotFoundError:
         "nothing"
     except:
         gevent.sleep(5)
-        os.remove(ROOT_DIR + "/allureReports/environment.properties")
-    f = open(ROOT_DIR + "/allureReports/environment.properties", "w+")
+        os.remove(ROOT_DIR + "/allure_reports/environment.properties")
+    f = open(ROOT_DIR + "/allure_reports/environment.properties", "w+")
     f.write("Environment %s\n" % ENVIRONEMENT.upper())
     f.write("URL %s\n" % MAIN_API_URL)
     f.write("GitLab %s\n" % GITLAB)
@@ -37,21 +37,21 @@ def fix_properties():
 
 
 # Get API url and attributes to generate request link
-@pytest.allure.step('Generating request link')
+@allure.step('Generating request link')
 def generate_request_link(url, attributes):
     return MAIN_API_URL + url + '&'.join(
         ['%s=%s' % (key, value) for (key, value) in attributes.items()])
 
 
 # Get value from response by needed field
-@pytest.allure.step('Get value by specific field')
+@allure.step('Get value by specific field')
 def get_value(field, response):
     values = response.json()
     return values.get(field)
 
 
 # Check that all mentioned fields present in response
-@pytest.allure.step('Check that all needed fields present')
+@allure.step('Check that all needed fields present')
 def check_all_fields_present(fields, response):
     response_values = response.json()
     missed_fields = []
@@ -70,7 +70,7 @@ def check_all_fields_present(fields, response):
 
 
 # Check that all fields has needed types
-@pytest.allure.step('Check that all fields have correct format type')
+@allure.step('Check that all fields have correct format type')
 def check_types_of_fields(types, response):
     values = response.json()
     wrong_types = []

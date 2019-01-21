@@ -1,0 +1,674 @@
+{
+  "3b0003cb4009cb19c139012df491466c" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 10,
+      "unknown" : 0,
+      "total" : 11
+    },
+    "items" : [ {
+      "uid" : "a4696f7fbf7ca68",
+      "status" : "passed",
+      "time" : {
+        "start" : 1505040584748,
+        "stop" : 1505040597409,
+        "duration" : 12661
+      }
+    }, {
+      "uid" : "45b868cacd76c323",
+      "status" : "passed",
+      "time" : {
+        "start" : 1505040313047,
+        "stop" : 1505040328987,
+        "duration" : 15940
+      }
+    }, {
+      "uid" : "6d6d6fd21a0a2966",
+      "status" : "passed",
+      "time" : {
+        "start" : 1505040162207,
+        "stop" : 1505040179310,
+        "duration" : 17103
+      }
+    }, {
+      "uid" : "eae01de8ba83d35a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1505040053294,
+        "stop" : 1505040066306,
+        "duration" : 13012
+      }
+    }, {
+      "uid" : "606697d235804ba1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504951288547,
+        "stop" : 1504951300538,
+        "duration" : 11991
+      }
+    } ]
+  },
+  "d9f63e48c7b9db9adeb14c4b4baf3c56" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 7,
+      "unknown" : 0,
+      "total" : 7
+    },
+    "items" : [ {
+      "uid" : "2f945e58b2ddfec2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1547993838994,
+        "stop" : 1547993839172,
+        "duration" : 178
+      }
+    }, {
+      "uid" : "fdada58a424c39ac",
+      "status" : "passed",
+      "time" : {
+        "start" : 1547990173805,
+        "stop" : 1547990174022,
+        "duration" : 217
+      }
+    }, {
+      "uid" : "fa02d0df0fab709d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1547989537102,
+        "stop" : 1547989537281,
+        "duration" : 179
+      }
+    }, {
+      "uid" : "30bd60761dd94bb5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1520435585755,
+        "stop" : 1520435585967,
+        "duration" : 212
+      }
+    }, {
+      "uid" : "b547373afe14b16",
+      "status" : "passed",
+      "time" : {
+        "start" : 1520435574850,
+        "stop" : 1520435575163,
+        "duration" : 313
+      }
+    } ]
+  },
+  "3e2c091dc12854bb942e6a5ac4a2959c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "7d9c57c6b0c43733",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504938119827,
+        "stop" : 1504938128113,
+        "duration" : 8286
+      }
+    }, {
+      "uid" : "f207daac108bdca0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504937602023,
+        "stop" : 1504937609584,
+        "duration" : 7561
+      }
+    }, {
+      "uid" : "ed7fdaedd92a65af",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504936665595,
+        "stop" : 1504936672157,
+        "duration" : 6562
+      }
+    } ]
+  },
+  "fec71e24eace5adcf0e0048f2aed8b25" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 3,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "7c19322983b90ef8",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'url/users/login': No schema supplied. Perhaps you meant http://url/users/login?",
+      "time" : { }
+    }, {
+      "uid" : "b395bd8158f96397",
+      "status" : "broken",
+      "statusDetails" : "RecursionError: maximum recursion depth exceeded while calling a Python object",
+      "time" : { }
+    }, {
+      "uid" : "4dedd4a1c68ea56a",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'api url/users/login': No schema supplied. Perhaps you meant http://api url/users/login?",
+      "time" : { }
+    } ]
+  },
+  "d59f9d3f685061ec0761d0f8f8d3c704" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "983a8dfa1db0ab64",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504938143650,
+        "stop" : 1504938155287,
+        "duration" : 11637
+      }
+    }, {
+      "uid" : "d4a6121030dc540b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504937624819,
+        "stop" : 1504937634994,
+        "duration" : 10175
+      }
+    }, {
+      "uid" : "e08eed67c8a36728",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504936688996,
+        "stop" : 1504936704786,
+        "duration" : 15790
+      }
+    } ]
+  },
+  "c60e61ba8ef57471e334b9a02bdfb2ca" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 3,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "aa50808c5b4529a5",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'url/users/login': No schema supplied. Perhaps you meant http://url/users/login?",
+      "time" : { }
+    }, {
+      "uid" : "44164f0343814cb",
+      "status" : "broken",
+      "statusDetails" : "RecursionError: maximum recursion depth exceeded while calling a Python object",
+      "time" : { }
+    }, {
+      "uid" : "ca07c790dc4b3f82",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'api url/users/login': No schema supplied. Perhaps you meant http://api url/users/login?",
+      "time" : { }
+    } ]
+  },
+  "9c9e5d459605d7a09dd57c347ab01e1c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 3,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "9dd49fa8cdb939c0",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'url/users/login': No schema supplied. Perhaps you meant http://url/users/login?",
+      "time" : { }
+    }, {
+      "uid" : "417c5d058991f14",
+      "status" : "broken",
+      "statusDetails" : "RecursionError: maximum recursion depth exceeded while calling a Python object",
+      "time" : { }
+    }, {
+      "uid" : "b3668c1188a989c3",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'api url/users/login': No schema supplied. Perhaps you meant http://api url/users/login?",
+      "time" : { }
+    } ]
+  },
+  "05adfd6a4f808830b85ffc229c71339f" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 10,
+      "unknown" : 0,
+      "total" : 11
+    },
+    "items" : [ {
+      "uid" : "8a02700421edc847",
+      "status" : "passed",
+      "time" : {
+        "start" : 1505040597412,
+        "stop" : 1505040615822,
+        "duration" : 18410
+      }
+    }, {
+      "uid" : "ce5affe60047ada5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1505040328990,
+        "stop" : 1505040347302,
+        "duration" : 18312
+      }
+    }, {
+      "uid" : "cb7b088051e9f3a5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1505040179315,
+        "stop" : 1505040206260,
+        "duration" : 26945
+      }
+    }, {
+      "uid" : "669cb1909278c184",
+      "status" : "passed",
+      "time" : {
+        "start" : 1505040066308,
+        "stop" : 1505040089212,
+        "duration" : 22904
+      }
+    }, {
+      "uid" : "be96687df47328b6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504951300540,
+        "stop" : 1504951316947,
+        "duration" : 16407
+      }
+    } ]
+  },
+  "0776092a5f2eba07dde3af456745fdd1" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 3,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "f4fd78f3990f6dee",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'url/users/login': No schema supplied. Perhaps you meant http://url/users/login?",
+      "time" : { }
+    }, {
+      "uid" : "786765b60b62985f",
+      "status" : "broken",
+      "statusDetails" : "RecursionError: maximum recursion depth exceeded while calling a Python object",
+      "time" : { }
+    }, {
+      "uid" : "58addde4961653f",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'api url/users/login': No schema supplied. Perhaps you meant http://api url/users/login?",
+      "time" : { }
+    } ]
+  },
+  "511b452d63a38536592e6f38d42d7f94" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 7,
+      "unknown" : 0,
+      "total" : 7
+    },
+    "items" : [ {
+      "uid" : "6a8f3612b98e9e6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1547993839182,
+        "stop" : 1547993839184,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "40e5e1243210216a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1547990174031,
+        "stop" : 1547990174033,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "fefebea2c7f98c53",
+      "status" : "passed",
+      "time" : {
+        "start" : 1547989537292,
+        "stop" : 1547989537294,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "414688fc458025bc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1520435585974,
+        "stop" : 1520435585976,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "b970e783d3dc1306",
+      "status" : "passed",
+      "time" : {
+        "start" : 1520435575173,
+        "stop" : 1520435575175,
+        "duration" : 2
+      }
+    } ]
+  },
+  "4c44238df21cdfafb5fc8e4561663ce0" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 7,
+      "unknown" : 0,
+      "total" : 7
+    },
+    "items" : [ {
+      "uid" : "aec31c04495e973b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1547993839176,
+        "stop" : 1547993839177,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "ca75bc11a7636e3d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1547990174025,
+        "stop" : 1547990174026,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "446f415c671c04df",
+      "status" : "passed",
+      "time" : {
+        "start" : 1547989537285,
+        "stop" : 1547989537287,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "1204d8767a3d9a7b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1520435585970,
+        "stop" : 1520435585971,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "32329e04c287b02",
+      "status" : "passed",
+      "time" : {
+        "start" : 1520435575166,
+        "stop" : 1520435575167,
+        "duration" : 1
+      }
+    } ]
+  },
+  "afb431c3ba1b610330b2cc7466242a2b" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 3,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "b4683c6c0c8e869",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'url/users/login': No schema supplied. Perhaps you meant http://url/users/login?",
+      "time" : { }
+    }, {
+      "uid" : "8dca705c1af42b8d",
+      "status" : "broken",
+      "statusDetails" : "RecursionError: maximum recursion depth exceeded while calling a Python object",
+      "time" : { }
+    }, {
+      "uid" : "6c412ae280327eae",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'api url/users/login': No schema supplied. Perhaps you meant http://api url/users/login?",
+      "time" : { }
+    } ]
+  },
+  "1119b6770462881d4895caea5f92d1d4" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 4,
+      "unknown" : 1,
+      "total" : 6
+    },
+    "items" : [ {
+      "uid" : "b583d88716d7755a",
+      "status" : "unknown",
+      "time" : { }
+    }, {
+      "uid" : "dee2aac403698fa6",
+      "status" : "broken",
+      "statusDetails" : "FileExistsError: [Errno 17] File exists: '/Users/Grave/.wdm/chromedriver/2.45/mac64'",
+      "time" : { }
+    }, {
+      "uid" : "9d9b077277ca1e78",
+      "status" : "passed",
+      "time" : {
+        "start" : 1520435591458,
+        "stop" : 1520435594176,
+        "duration" : 2718
+      }
+    }, {
+      "uid" : "5deb920247822191",
+      "status" : "passed",
+      "time" : {
+        "start" : 1516611800192,
+        "stop" : 1516611801117,
+        "duration" : 925
+      }
+    }, {
+      "uid" : "92d95361ada91f17",
+      "status" : "passed",
+      "time" : {
+        "start" : 1515756236591,
+        "stop" : 1515756239281,
+        "duration" : 2690
+      }
+    } ]
+  },
+  "2461549a87b817b828f4cd23d4f86617" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 3,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "5912c5d473d8f276",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'url/users/login': No schema supplied. Perhaps you meant http://url/users/login?",
+      "time" : { }
+    }, {
+      "uid" : "dde84a06850438de",
+      "status" : "broken",
+      "statusDetails" : "RecursionError: maximum recursion depth exceeded while calling a Python object",
+      "time" : { }
+    }, {
+      "uid" : "3d71a8c35d102cdf",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'api url/users/login': No schema supplied. Perhaps you meant http://api url/users/login?",
+      "time" : { }
+    } ]
+  },
+  "4caa4155b4784371b0d202d5ebf64521" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 3,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "7f7de11b6e324996",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'url/users/login': No schema supplied. Perhaps you meant http://url/users/login?",
+      "time" : { }
+    }, {
+      "uid" : "11322684f0630bc8",
+      "status" : "broken",
+      "statusDetails" : "RecursionError: maximum recursion depth exceeded while calling a Python object",
+      "time" : { }
+    }, {
+      "uid" : "3033fadd1d6c7f46",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.MissingSchema: Invalid URL 'api url/users/login': No schema supplied. Perhaps you meant http://api url/users/login?",
+      "time" : { }
+    } ]
+  },
+  "e21730b6939520076a5ec7ecc3dfe873" : {
+    "statistic" : {
+      "failed" : 5,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 1,
+      "total" : 9
+    },
+    "items" : [ {
+      "uid" : "745abeb86ae11bb0",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Element missed. It takes more than 10 sec to load an element",
+      "time" : {
+        "start" : 1547994111485,
+        "stop" : 1547994132513,
+        "duration" : 21028
+      }
+    }, {
+      "uid" : "8c010efe1e21185e",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Element missed. It takes more than 10 sec to load an element",
+      "time" : {
+        "start" : 1547993843722,
+        "stop" : 1547993870321,
+        "duration" : 26599
+      }
+    }, {
+      "uid" : "34e9865db0e1d2df",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Element missed. It takes more than 10 sec to load an element",
+      "time" : {
+        "start" : 1547990178038,
+        "stop" : 1547990199465,
+        "duration" : 21427
+      }
+    }, {
+      "uid" : "7f6bcd9a8c68d42e",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Element missed. It takes more than 10 sec to load an element",
+      "time" : {
+        "start" : 1547989541461,
+        "stop" : 1547989564155,
+        "duration" : 22694
+      }
+    }, {
+      "uid" : "6dfcfd2e400f17a8",
+      "status" : "unknown",
+      "time" : { }
+    } ]
+  },
+  "89a91912cd31e03f766c44f2578f7ce7" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "af429df1d51bb8a8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504938128116,
+        "stop" : 1504938143648,
+        "duration" : 15532
+      }
+    }, {
+      "uid" : "a4ad9fcd1eb93311",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504937609587,
+        "stop" : 1504937624816,
+        "duration" : 15229
+      }
+    }, {
+      "uid" : "89a6badee983db56",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504936672159,
+        "stop" : 1504936688994,
+        "duration" : 16835
+      }
+    } ]
+  },
+  "721c39d6c2029053b4321941ee79a546" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    },
+    "items" : [ {
+      "uid" : "53f0e64dd7b5b24f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504938108481,
+        "stop" : 1504938119824,
+        "duration" : 11343
+      }
+    }, {
+      "uid" : "545f707ed842860b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504937590715,
+        "stop" : 1504937602021,
+        "duration" : 11306
+      }
+    }, {
+      "uid" : "f2796de283d8ac5e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1504936637825,
+        "stop" : 1504936665592,
+        "duration" : 27767
+      }
+    } ]
+  }
+}

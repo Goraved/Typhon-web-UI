@@ -7,14 +7,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
-from framework.locators import *
+from configuration.config_parse import *
 
 
 class BasePage:
     timeout_sec = 10
     implicit_sec = 5
 
-    def __init__(self, driver, base_url=BASE_URL):
+    def __init__(self, driver, base_url=MAIN_UI_URL):
         self.driver = driver
         self.base_url = base_url
 

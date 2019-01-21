@@ -1,28 +1,25 @@
 import datetime
-import shutil
 
-import pytest
-import smtplib
-from email.mime.text import MIMEText
-from base_definitions import ROOT_DIR
+import allure
+
 from configuration.config_parse import *
 
 
-class Utilities():
+class Utilities:
     def get_screenshot(self):
         date = datetime.datetime.now().strftime(" %Y-%m-%d %H %M %S")
         test_method_name = self._testMethodName + date
         try:
-            pytest.allure.attach(self.driver.get_screenshot_as_png(), name='failure_screenshot',
-                                 attachment_type=pytest.allure.attachment_type.PNG)
-            file = ROOT_DIR + "/screenshots/Exception %s.png" % test_method_name
+            allure.attach(self.driver.get_screenshot_as_png(), name='failure_screenshot',
+                          attachment_type=allure.attachment_type.PNG)
+            file = f"{ROOT_DIR}/screenshots/Exception %s.png" % test_method_name
             self.driver.save_screenshot(file)
         except:
-            file = ROOT_DIR + "/screenshots/Exception %s.png" % test_method_name
+            file = f"{ROOT_DIR}/screenshots/Exception %s.png" % test_method_name
             self.driver.save_screenshot(file)
 
     # def send_email_with_last_run(self):
-    #     directory = ROOT_DIR+'/allureReports'
+    #     directory = ROOT_DIR+'/allure_reports'
     #     latest_run = max(directory, key=os.path.getmtime)
     #     latest_run += '/generated-report'
     #     shutil.make_archive('Last_test_run'+datetime.datetime.now().strftime(" %Y-%m-%d %H %M %S"), 'zip', latest_run)

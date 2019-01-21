@@ -1,6 +1,6 @@
 import pytest
-from framework.locators import *
-from framework.base_page import BasePage
+from framework.ui.base_page import BasePage
+from framework.ui.locators.google_search_locators import GoogleSearchLocators
 
 
 class GoogleSearchPage(BasePage):
