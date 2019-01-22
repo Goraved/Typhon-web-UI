@@ -1,7 +1,7 @@
 import datetime
 
 import allure
-
+from allure import step
 from configuration.config_parse import *
 
 
