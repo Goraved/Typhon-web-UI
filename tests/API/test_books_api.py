@@ -24,18 +24,21 @@ class TestBookApi(TestBase):
 
     @allure.step('01 - Check API status')
     def test_01_status_is_200(self):
-        link = self.url + self.book_id
-        TestBase.response = requests.get(link)
-        self.assertTrue(TestBase.response.status_code == 200,
-                        'Status is {%s} instead of 200' % TestBase.response.status_code)
+        with step('Get books response'):
+            TestBase.response = requests.get(f'{self.url}{self.book_id}')
+        with step('Check response is 200'):
+            self.assertTrue(TestBase.response.status_code == 200,
+                            'Status is {%s} instead of 200' % TestBase.response.status_code)
 
     @allure.step('02 - Check all fields present')
     def test_02_check_all_fields_present(self):
         # Put here fields, that should be present in output response
         needed_fields = ['ISBN', 'Title', 'Subtitle', 'Description', 'CoverThumb', 'LanguageCode', 'Subjects',
                          'Authors']
-        missed_fields = check_all_fields_present(needed_fields, TestBase.response)
-        self.assertTrue(missed_fields is None, 'Next fields are missed %s' % missed_fields)
+        with step('Collect all missed fields'):
+            missed_fields = check_all_fields_present(needed_fields, TestBase.response)
+        with step('Check all fields present'):
+            self.assertTrue(missed_fields is None, 'Next fields are missed %s' % missed_fields)
 
     @allure.step('03 - Check all fields have correct format')
     def test_03_check_all_types(self):
@@ -49,5 +52,7 @@ class TestBookApi(TestBase):
             'Subjects': 'list',
             'Authors': 'list'
         }
-        wrong_types = check_types_of_fields(types, TestBase.response)
-        self.assertTrue(wrong_types is None, 'Wrong data types: %s' % wrong_types)
+        with step('Collect wrong field types'):
+            wrong_types = check_types_of_fields(types, TestBase.response)
+        with step('Check all fields have correct type'):
+            self.assertTrue(wrong_types is None, 'Wrong data types: %s' % wrong_types)
