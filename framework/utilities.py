@@ -22,19 +22,19 @@ class Utilities:
     @staticmethod
     def fix_api_properties():
         try:
-            os.remove(ROOT_DIR + "/allure_reports/environment.properties")
+            os.remove(f"{ROOT_DIR}/allure_reports/environment.properties")
         except FileNotFoundError:
             "nothing"
         except:
             gevent.sleep(5)
-            os.remove(ROOT_DIR + "/allure_reports/environment.properties")
-        f = open(ROOT_DIR + "/allure_reports/environment.properties", "w+")
-        f.write("Environment %s\n" % ENVIRONEMENT.upper())
-        f.write("URL %s\n" % MAIN_API_URL)
-        f.write("GitLab %s\n" % GITLAB)
-        f.write("OS_NAME %s\n" % OS_NAME)
-        f.write("OS_VERSION %s\n" % OS_VERSION)
-        f.write("OS_ARCHITECTURE %s\n" % OS_ARCHITECTURE[0])
+            os.remove(f"{ROOT_DIR}/allure_reports/environment.properties")
+        f = open(f"{ROOT_DIR}/allure_reports/environment.properties", "w+")
+        f.write(f"Environment {ENVIRONEMENT.upper()}\n")
+        f.write(f"URL {MAIN_API_URL}\n")
+        f.write(f"GitLab {GITLAB}\n")
+        f.write(f"OS_NAME {OS_NAME}\n")
+        f.write(f"OS_VERSION {OS_VERSION}\n")
+        f.write(f"OS_ARCHITECTURE {OS_ARCHITECTURE[0]}\n")
 
     @staticmethod
     def log(msg, msg_type='DEBUG'):
