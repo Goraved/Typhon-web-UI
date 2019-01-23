@@ -6,7 +6,7 @@ from base_definitions import *
 config = configparser.ConfigParser()
 
 ENVIRONEMENT = os.getenv('ENVIRONMENT', 'DEV')
-config.readfp(open(f'{ROOT_DIR}/configuration/{ENVIRONEMENT}.ini'))
+config.read_file(open(f'{ROOT_DIR}/configuration/{ENVIRONEMENT}.ini'))
 
 # Attachment files
 VIDEOFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'video_file_path')"
