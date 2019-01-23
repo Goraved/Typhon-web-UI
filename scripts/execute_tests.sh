@@ -12,7 +12,7 @@ export PYTHONPATH
 
 ## Set environment
 ENVIRONMENT=DEV
-RUN_TESTS=UI
+RUN_TESTS=API
 pip install -r requirements.txt --quiet
 
 # Run The tests in project folder
@@ -29,7 +29,7 @@ cp ${dir}/allure_reports/history/*.json ${dir}/allure_reports/archive/${_now}/hi
 allure generate ${dir}/allure_reports/archive/${_now} -o ${dir}/allure_reports/archive/${_now}/generated-report
 
 ## Saving current test run to history
-rm /Users/Grave/PycharmProjects/automated-tests/allure_reports/history/*
+rm ${dir}/allure_reports/history/*
 cp -r ${dir}/allure_reports/archive/${_now}/generated-report/history/*.json ${dir}/allure_reports/history
 
 ## Run server with generated allure report

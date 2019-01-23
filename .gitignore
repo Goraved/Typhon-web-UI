@@ -1,6 +1,7 @@
 .DS_Store
 .idea/
 ./screenshots/*
-./allureReports/archive/*
+./allurer_reports/archive/*
+./allurer_reports/history/*
 !.gitignore
 *.pyc

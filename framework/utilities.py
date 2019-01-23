@@ -1,7 +1,8 @@
 import datetime
 
 import allure
-from allure import step
+import gevent
+
 from configuration.config_parse import *
 
 
@@ -18,17 +19,27 @@ class Utilities:
             file = f"{ROOT_DIR}/screenshots/Exception %s.png" % test_method_name
             self.driver.save_screenshot(file)
 
-    # def send_email_with_last_run(self):
-    #     directory = ROOT_DIR+'/allure_reports'
-    #     latest_run = max(directory, key=os.path.getmtime)
-    #     latest_run += '/generated-report'
-    #     shutil.make_archive('Last_test_run'+datetime.datetime.now().strftime(" %Y-%m-%d %H %M %S"), 'zip', latest_run)
-    #     s = smtplib.SMTP('smtp.gmail.com')
-    #     s.set_debuglevel(1)
-    #     msg = MIMEText("""body""")
-    #     sender = EMAIL_SENDER
-    #     recipients = EMAIL_RECIPIENTS
-    #     msg['Subject'] = " ".join(PROJECT, ENVIRONEMENT, 'last test run')
-    #     msg['From'] = EMAIL_FROM
-    #     msg['To'] = ", ".join(EMAIL_RECIPIENTS)
-    #     s.sendmail(sender, recipients, msg.as_string())
+    @staticmethod
+    def fix_api_properties():
+        try:
+            os.remove(ROOT_DIR + "/allure_reports/environment.properties")
+        except FileNotFoundError:
+            "nothing"
+        except:
+            gevent.sleep(5)
+            os.remove(ROOT_DIR + "/allure_reports/environment.properties")
+        f = open(ROOT_DIR + "/allure_reports/environment.properties", "w+")
+        f.write("Environment %s\n" % ENVIRONEMENT.upper())
+        f.write("URL %s\n" % MAIN_API_URL)
+        f.write("GitLab %s\n" % GITLAB)
+        f.write("OS_NAME %s\n" % OS_NAME)
+        f.write("OS_VERSION %s\n" % OS_VERSION)
+        f.write("OS_ARCHITECTURE %s\n" % OS_ARCHITECTURE[0])
+
+    @staticmethod
+    def log(msg, msg_type='DEBUG'):
+        """
+        Method will write log message to the allure report int 'stdout' tab
+        """
+        current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print(f'{current_time} - {msg_type}: \n {msg}\n-------')
