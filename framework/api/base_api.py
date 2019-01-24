@@ -25,7 +25,7 @@ class BaseAPI:
     def get(self, path, **kwargs):
         headers = kwargs.get('headers', self.default_header)
         self.log(f'Sent GET request with: \n  URL = {path} \n  Headers = {headers}', msg_type='REQUEST')
-        response = requests.get(path, headers)
+        response = requests.get(path, headers=headers)
         self.log(f'Status = {response.status_code} \n Response = {response.content}', msg_type='RESPONSE')
         assert response.status_code == 200
         return response
