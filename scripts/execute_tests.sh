@@ -1,5 +1,7 @@
 #!/bin/bash
-cd ..
+if [[ ! -f requirements.txt ]]; then
+    cd ..
+fi
 source venv/bin/activate
 
 _now=$(date +%Y-%m-%d_%H:%M:%S)
@@ -12,7 +14,7 @@ export PYTHONPATH
 
 ## Set environment
 ENVIRONMENT=DEV
-RUN_TESTS=API
+RUN_TESTS=
 pip install -r requirements.txt --quiet
 
 # Run The tests in project folder

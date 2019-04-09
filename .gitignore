@@ -3,5 +3,6 @@
 ./screenshots/*
 ./allure_reports/archive/*
 ./allure_reports/history/*
+allure_reports/
 !.gitignore
 *.pyc
