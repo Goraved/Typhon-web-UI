@@ -1,4 +1,4 @@
-# Welcome to the testing_framework wiki!
+# Welcome to the Typhon framework wiki!
 
 ## Description
 This is a Python framework for writing test automation scenarios using [page object pattern](http://selenium-python.readthedocs.io/page-objects.html).
