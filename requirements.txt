@@ -3,6 +3,7 @@ allure-python-commons
 configparser
 gevent
 locust
+pluggy
 py
 pytest
 pytest-xdist

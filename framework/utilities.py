@@ -2,6 +2,7 @@ import datetime
 
 import allure
 import gevent
+import selenium
 
 from configuration.config_parse import *
 
@@ -19,27 +20,34 @@ class Utilities:
             file = f"{ROOT_DIR}/screenshots/Exception %s.png" % test_method_name
             self.driver.save_screenshot(file)
 
-    @staticmethod
-    def fix_api_properties():
+    def get_html_source(self):
         try:
-            os.remove(f"{ROOT_DIR}/allure_reports/environment.properties")
-        except FileNotFoundError:
-            "nothing"
+            allure.attach(self.driver.page_source, name='html_source', attachment_type=allure.attachment_type.HTML)
         except:
-            gevent.sleep(5)
-            os.remove(f"{ROOT_DIR}/allure_reports/environment.properties")
-        f = open(f"{ROOT_DIR}/allure_reports/environment.properties", "w+")
-        f.write(f"Environment {ENVIRONEMENT.upper()}\n")
-        f.write(f"URL {MAIN_API_URL}\n")
-        f.write(f"GitLab {GITLAB}\n")
-        f.write(f"OS_NAME {OS_NAME}\n")
-        f.write(f"OS_VERSION {OS_VERSION}\n")
-        f.write(f"OS_ARCHITECTURE {OS_ARCHITECTURE[0]}\n")
+            pass  # Local without allure
 
-    @staticmethod
-    def log(msg, msg_type='DEBUG'):
-        """
-        Method will write log message to the allure report int 'stdout' tab
-        """
-        current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print(f'{current_time} - {msg_type}: \n {msg}\n-------')
+    def fix_properties(self):
+        properties_path = f'{ROOT_DIR}/allure-results/environment.properties'
+        if os.path.isdir(f"{ROOT_DIR}/allure-results"):
+            if os.path.exists(properties_path):
+                remove_cycles = 10
+                wait_interval = 1
+                for _ in range(remove_cycles):
+                    try:
+                        os.remove(properties_path)
+                        break
+                    except FileNotFoundError:
+                        gevent.sleep(wait_interval)  # will be useful in parallel mode
+        else:
+            os.mkdir(f"{ROOT_DIR}/allure-results")
+        f = open(properties_path, "w+")
+        f.write("Environment %s\n" % os.getenv('ENVIRONMENT', '').upper())
+        f.write("Browser %s\n" % BROWSER.upper())
+        try:
+            f.write(BROWSER.upper() + "_VERSION %s\n" % self.driver.capabilities['browserVersion'])
+        except KeyError:
+            f.write(BROWSER.upper() + "_VERSION %s\n" % self.driver.capabilities['version'])
+        f.write("Git %s\n" % GITHUB)
+        f.write("OS_VERSION %s\n" % OS_VERSION)
+        f.write("SELENIUM_VERSION %s\n" % selenium.__version__)
+        f.write("HEADLESS %s\n" % os.getenv('HEADLESS'))

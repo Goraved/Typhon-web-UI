@@ -1,17 +1,9 @@
-from framework.ui.pages.qa_cart_page import QaCartPage
 from framework.ui.pages.qa_item_page import *
-from framework.ui.pages.qa_tools_home_page import QaToolsHomePage
-from tests.UI import TestBase
+from tests.UI.qa_tools import TestQaToolsBase
 
 
 @allure.feature('QA Tools')
-class TestQaTools(TestBase):
-    @classmethod
-    def setUpClass(cls):
-        super(TestQaTools, cls).setUpClass()
-        cls.qa_home_page = QaToolsHomePage(cls.driver)
-        cls.qa_item_page = QaItemPage(cls.driver)
-        cls.qa_order_page = QaCartPage(cls.driver)
+class TestQaTools(TestQaToolsBase):
 
     @allure.step('01 - Purchase MacBook')
     def test_01_purchase_macbook(self):

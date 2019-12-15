@@ -8,7 +8,7 @@ class QaToolsHomePage(BasePage):
     # Go to google search page
     @allure.step('Go to home page')
     def go_to_qa_homepage(self):
-        self.go_to_exact_url(QaToolsHomePageLocators.url)
+        self.go_to_exact_url(self.base_url)
 
     @allure.step('Go to MacBook category')
     def go_to_macbook_category(self):
