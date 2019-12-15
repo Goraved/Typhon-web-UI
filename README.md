@@ -1,11 +1,10 @@
-# Welcome to the testing_framework wiki!
+# Welcome to the Typhon web UI wiki!
 
 ## Description
 This is a Python framework for writing test automation scenarios using [page object pattern](http://selenium-python.readthedocs.io/page-objects.html).
 
 ## Can be tested using framework:
 1. UI - using Selenium WebDriver;
-2. API - using basic Python + my own methods.
 3. Load - using [Locust](https://locust.io/)
 
 ## Instruments using :
@@ -14,7 +13,7 @@ This is a Python framework for writing test automation scenarios using [page obj
 3.  [Allure](http://allure.qatools.ru/)
 4.  [Locust](https://locust.io/)
 
-## Useful links
+## Useful links (could be outdated)
 **[Instruction how to start using framework](https://github.com/Goraved/testing_framework/wiki/How-to-start-working-with-framework)**
 
 **[How to change browser](https://github.com/Goraved/testing_framework/wiki/How-to-change-browser)**
@@ -25,13 +24,9 @@ This is a Python framework for writing test automation scenarios using [page obj
 
 **[How to create UI test](https://github.com/Goraved/testing_framework/wiki/How-to-create-UI-test)**
 
-**[How to create API test](https://github.com/Goraved/testing_framework/wiki/How-to-create-API-test)**
-
 **[Hot to use Allure reports](https://github.com/Goraved/testing_framework/wiki/How-to-use-allure-reports)**
 
 **[Base UI methods](https://github.com/Goraved/testing_framework/wiki/Base-UI-methods)**
-
-**[Base API methods](https://github.com/Goraved/testing_framework/wiki/Base-API-methods)**
 
 **[Config file structure](https://github.com/Goraved/testing_framework/wiki/Config-file-structure)**
 
@@ -40,6 +35,8 @@ This is a Python framework for writing test automation scenarios using [page obj
 **[SoloLearn](https://www.sololearn.com/Course/Python/)**
 
 **[DataCamp](https://www.datacamp.com/courses/intro-to-python-for-data-science)**
+
+**[Udemy](https://www.udemy.com/course/complete-python-bootcamp/)**
 
 > Next block (Selenium) needs only for deeper understand of how Selenium works 
 

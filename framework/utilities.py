@@ -1,6 +1,8 @@
 import datetime
 
 import allure
+import gevent
+import selenium
 
 from configuration.config_parse import *
 
@@ -18,17 +20,34 @@ class Utilities:
             file = f"{ROOT_DIR}/screenshots/Exception %s.png" % test_method_name
             self.driver.save_screenshot(file)
 
-    # def send_email_with_last_run(self):
-    #     directory = ROOT_DIR+'/allure_reports'
-    #     latest_run = max(directory, key=os.path.getmtime)
-    #     latest_run += '/generated-report'
-    #     shutil.make_archive('Last_test_run'+datetime.datetime.now().strftime(" %Y-%m-%d %H %M %S"), 'zip', latest_run)
-    #     s = smtplib.SMTP('smtp.gmail.com')
-    #     s.set_debuglevel(1)
-    #     msg = MIMEText("""body""")
-    #     sender = EMAIL_SENDER
-    #     recipients = EMAIL_RECIPIENTS
-    #     msg['Subject'] = " ".join(PROJECT, ENVIRONEMENT, 'last test run')
-    #     msg['From'] = EMAIL_FROM
-    #     msg['To'] = ", ".join(EMAIL_RECIPIENTS)
-    #     s.sendmail(sender, recipients, msg.as_string())
+    def get_html_source(self):
+        try:
+            allure.attach(self.driver.page_source, name='html_source', attachment_type=allure.attachment_type.HTML)
+        except:
+            pass  # Local without allure
+
+    def fix_properties(self):
+        properties_path = f'{ROOT_DIR}/allure-results/environment.properties'
+        if os.path.isdir(f"{ROOT_DIR}/allure-results"):
+            if os.path.exists(properties_path):
+                remove_cycles = 10
+                wait_interval = 1
+                for _ in range(remove_cycles):
+                    try:
+                        os.remove(properties_path)
+                        break
+                    except FileNotFoundError:
+                        gevent.sleep(wait_interval)  # will be useful in parallel mode
+        else:
+            os.mkdir(f"{ROOT_DIR}/allure-results")
+        f = open(properties_path, "w+")
+        f.write("Environment %s\n" % os.getenv('ENVIRONMENT', '').upper())
+        f.write("Browser %s\n" % BROWSER.upper())
+        try:
+            f.write(BROWSER.upper() + "_VERSION %s\n" % self.driver.capabilities['browserVersion'])
+        except KeyError:
+            f.write(BROWSER.upper() + "_VERSION %s\n" % self.driver.capabilities['version'])
+        f.write("Git %s\n" % GITHUB)
+        f.write("OS_VERSION %s\n" % OS_VERSION)
+        f.write("SELENIUM_VERSION %s\n" % selenium.__version__)
+        f.write("HEADLESS %s\n" % os.getenv('HEADLESS'))

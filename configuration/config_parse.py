@@ -3,10 +3,12 @@ import platform
 
 from base_definitions import *
 
-config = configparser.ConfigParser()
+env_config = configparser.ConfigParser()
+ENVIRONMENT = os.getenv('ENVIRONMENT', 'DEV')
+env_config.read_file(open(f'{os.path.dirname(os.path.abspath(__file__))}/{ENVIRONMENT}.ini'))
 
-ENVIRONEMENT = os.getenv('ENVIRONMENT', 'DEV')
-config.readfp(open(f'{ROOT_DIR}/configuration/{ENVIRONEMENT}.ini'))
+global_config = configparser.ConfigParser()
+global_config.read_file(open(f'{os.path.dirname(os.path.abspath(__file__))}/global.ini'))
 
 # Attachment files
 VIDEOFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'video_file_path')"
@@ -33,18 +35,14 @@ XLSXFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'xlsx_file_path')"
 ZIPFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'zip_file_path')"
 
 # Environment settings
-MAIN_UI_URL = config.get('PATH', 'main_UI_url')
-MAIN_API_URL = config.get('PATH', 'main_API_url')
+MAIN_UI_URL = env_config.get('PATH', 'main_UI_url')
 OS_NAME = platform.system()
 OS_VERSION = platform.version()
 OS_ARCHITECTURE = platform.architecture()
 BROWSER = os.getenv('BROWSER', 'chrome')
-PROJECT = config.get('ENVIRONMENT', 'project')
-VIDEOFOLDERPATH = f"{ROOT_DIR}/config.get('ENVIRONMENT', 'video_folder_path')"
-LINK_TYPE_TEST_CASE = config.get('ENVIRONMENT', 'link_type_test_case')
-LINK_TYPE_LINK = config.get('ENVIRONMENT', 'link_type_link')
-TEST_CASE = config.get('ENVIRONMENT', 'test_case')
-EMAIL_RECIPIENTS = ['[email recipient]']
-GITLAB = config.get('ENVIRONMENT', 'git_lab')
-EMAIL_FROM = f"{PROJECT} QA TEAM"
-EMAIL_SENDER = '[email sender]'
+PROJECT = global_config.get('ENVIRONMENT', 'project')
+LINK_TYPE_TEST_CASE = global_config.get('ENVIRONMENT', 'link_type_test_case')
+LINK_TYPE_LINK = global_config.get('ENVIRONMENT', 'link_type_link')
+TEST_CASE = global_config.get('ENVIRONMENT', 'test_case')
+BUG = global_config.get('ENVIRONMENT', 'bug')
+GITHUB = global_config.get('ENVIRONMENT', 'github')
