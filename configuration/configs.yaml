@@ -1,0 +1,21 @@
+environments: {
+  dev: {},
+  qa: {}
+}
+
+urls: {
+  main_ui_url: 'http://automationpractice.com/index.php'
+}
+
+timeout_sec: 15
+implicit_sec: 1
+
+general: {
+  project: 'UI_tests',
+  git_path: 'https://github.com/Goraved/Typhon-web-UI',
+  bug: 'https://test.jira.com/browse/',
+  video_folder_path: '/videos',
+  link_type_test_case: 'TEST CASE',
+  link_type_link: 'LINK',
+  test_case: 'TEST CASE',
+}

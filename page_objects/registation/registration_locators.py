@@ -1,0 +1,25 @@
+from selenium.webdriver.common.by import By
+
+
+class RegistrationLocators:
+    EMAIL_INPUT = (By.CSS_SELECTOR, '#email_create')
+    CREATE_BTN = (By.CSS_SELECTOR, '#SubmitCreate')
+    GENDER_OPTION = (By.CSS_SELECTOR, '[name="id_gender"]')
+    CUSTOMER_FIRST_NAME_INPUT = (By.CSS_SELECTOR, '[name="customer_firstname"]')
+    CUSTOMER_LAST_NAME_INPUT = (By.CSS_SELECTOR, '[name="customer_lastname"]')
+    FIRST_NAME_INPUT = (By.CSS_SELECTOR, '[name="firstname"]')
+    LAST_NAME_INPUT = (By.CSS_SELECTOR, '[name="lastname"]')
+    PASSWORD_INPUT = (By.CSS_SELECTOR, '[name="passwd"]')
+    DAYS_SELECTOR = (By.CSS_SELECTOR, '#days')
+    MONTHS_SELECTOR = (By.CSS_SELECTOR, '#months')
+    YEARS_SELECTOR = (By.CSS_SELECTOR, '#years')
+    AGREE_CHECKBOX = (By.XPATH, '//div[@id="uniform-optin"]')
+    NEWSLETTER_CHECKBOX = (By.XPATH, '//div[@id="uniform-newsletter"]')
+    ADDRESS_INPUT = (By.CSS_SELECTOR, '[name="address1"]')
+    CITY_INPUT = (By.CSS_SELECTOR, '#city')
+    POSTCODE_INPUT = (By.CSS_SELECTOR, '#postcode')
+    OTHER_INPUT = (By.CSS_SELECTOR, '#other')
+    PHONE_INPUT = (By.CSS_SELECTOR, '#phone_mobile')
+    STATE_SELECT = (By.CSS_SELECTOR, '#id_state')
+    ALIAS_BTN = (By.CSS_SELECTOR, '#alias')
+    SUBMIT_ACCOUNT_BTN = (By.CSS_SELECTOR, '#submitAccount')

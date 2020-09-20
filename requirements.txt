@@ -5,8 +5,11 @@ gevent
 locust
 pluggy
 py
+pylint-fail-under
 pytest
 pytest-xdist
+pyvirtualdisplay
+PyYaml
 requests
 selenium
 webdriver-manager

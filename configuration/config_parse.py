@@ -1,48 +1,64 @@
-import configparser
+import os
 import platform
 
-from base_definitions import *
+import yaml
 
-env_config = configparser.ConfigParser()
-ENVIRONMENT = os.getenv('ENVIRONMENT', 'DEV')
-env_config.read_file(open(f'{os.path.dirname(os.path.abspath(__file__))}/{ENVIRONMENT}.ini'))
+# All configs placed into config/configs.yaml file. Please declare only variables here and set all values in yaml file
 
-global_config = configparser.ConfigParser()
-global_config.read_file(open(f'{os.path.dirname(os.path.abspath(__file__))}/global.ini'))
+CONFIGS = yaml.safe_load(open(f'{os.path.dirname(os.path.abspath(__file__))}/configs.yaml'))
+ENV_CONFIGS = CONFIGS['environments'][os.getenv('ENVIRONMENT', 'dev')]
+URLS = CONFIGS['urls']
+GENERAL = CONFIGS['general']
 
-# Attachment files
-VIDEOFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'video_file_path')"
-AVIFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'avi_file_path')"
-BMPFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'bmp_file_path')"
-DOCFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'doc_file_path')"
-DOCXFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'docx_file_path')"
-GIFFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'gif_file_path')"
-JPGFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'jpg_file_path')"
-MKVFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'mkv_file_path')"
-MOVFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'mov_file_path')"
-MP3FILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'mp3_file_path')"
-MP4FILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'mp4_file_path')"
-MPGFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'mpg_file_path')"
-PDFFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'pdf_file_path')"
-PNGFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'png_file_path')"
-PPTFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'ppt_file_path')"
-PPTXFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'pptx_file_path')"
-RARFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'rar_file_path')"
-TXTFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'txt_file_path')"
-WAVFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'wav_file_path')"
-XLSFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'xls_file_path')"
-XLSXFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'xlsx_file_path')"
-ZIPFILEPATH = f"{ROOT_DIR}/config.get('ATTACHMENTS', 'zip_file_path')"
+
+def get_value(key: str, key_type: str, *args):
+    """
+    Get constant value from YAML file by default, or from environment variables if exists
+    """
+    value = os.getenv(key.upper(), key_type[key])
+    if args and not os.getenv(key.upper()):
+        value = value.format(*args)
+    return value
+
 
 # Environment settings
-MAIN_UI_URL = env_config.get('PATH', 'main_UI_url')
+MAIN_UI_URL = get_value('main_ui_url', URLS)
+
+PROJECT = get_value('project', GENERAL)
+LINK_TYPE_TEST_CASE = get_value('link_type_test_case', GENERAL)
+LINK_TYPE_LINK = get_value('link_type_link', GENERAL)
+TEST_CASE = get_value('test_case', GENERAL)
+BUG = get_value('bug', GENERAL)
+GITHUB = get_value('git_path', GENERAL)
+
+TIMEOUT_SEC = get_value('timeout_sec', CONFIGS)
+IMPLICIT_SEC = get_value('implicit_sec', CONFIGS)
+
 OS_NAME = platform.system()
 OS_VERSION = platform.version()
 OS_ARCHITECTURE = platform.architecture()
-BROWSER = os.getenv('BROWSER', 'chrome')
-PROJECT = global_config.get('ENVIRONMENT', 'project')
-LINK_TYPE_TEST_CASE = global_config.get('ENVIRONMENT', 'link_type_test_case')
-LINK_TYPE_LINK = global_config.get('ENVIRONMENT', 'link_type_link')
-TEST_CASE = global_config.get('ENVIRONMENT', 'test_case')
-BUG = global_config.get('ENVIRONMENT', 'bug')
-GITHUB = global_config.get('ENVIRONMENT', 'github')
+ATTACHMENTS_DIR = '/attachments'
+
+# Attachments
+VIDEO_FILE_PATH = f'{ATTACHMENTS_DIR}/SampleVideo_1280x720_2mb.mp4'
+AVI_FILE_PATH = f'{ATTACHMENTS_DIR}/test.avi'
+BMP_FILE_PATH = f'{ATTACHMENTS_DIR}/test.bmp'
+DOC_FILE_PATH = f'{ATTACHMENTS_DIR}/test.doc'
+DOCX_FILE_PATH = f'{ATTACHMENTS_DIR}/test.docx'
+GIF_FILE_PATH = f'{ATTACHMENTS_DIR}/test.gif'
+JPG_FILE_PATH = f'{ATTACHMENTS_DIR}/test.jpg'
+MKV_FILE_PATH = f'{ATTACHMENTS_DIR}/test.mkv'
+MOV_FILE_PATH = f'{ATTACHMENTS_DIR}/test.mov'
+MP3_FILE_PATH = f'{ATTACHMENTS_DIR}/test.mp3'
+MP4_FILE_PATH = f'{ATTACHMENTS_DIR}/test.mp4'
+MPG_FILE_PATH = f'{ATTACHMENTS_DIR}/test.mpg'
+PDF_FILE_PATH = f'{ATTACHMENTS_DIR}/test.pdf'
+PNG_FILE_PATH = f'{ATTACHMENTS_DIR}/test.png'
+PPT_FILE_PATH = f'{ATTACHMENTS_DIR}/test.ppt'
+PPTX_FILE_PATH = f'{ATTACHMENTS_DIR}/test.pptx'
+RAR_FILE_PATH = f'{ATTACHMENTS_DIR}/test.rar'
+TXT_FILE_PATH = f'{ATTACHMENTS_DIR}/test.txt'
+WAV_FILE_PATH = f'{ATTACHMENTS_DIR}/test.wav'
+XLS_FILE_PATH = f'{ATTACHMENTS_DIR}/test.xls'
+XLSX_FILE_PATH = f'{ATTACHMENTS_DIR}/test.xlsx'
+ZIP_FILE_PATH = f'{ATTACHMENTS_DIR}/test.zip'
