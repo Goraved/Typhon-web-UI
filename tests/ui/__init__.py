@@ -1,7 +1,7 @@
 import pytest
 
-from framework.ui.driver_wrapper import Driver
-from framework.utilities import *
+from lib.driver_wrapper import Driver
+from lib.utilities import Utilities
 
 
 class TestBase:
@@ -10,20 +10,19 @@ class TestBase:
 
     @classmethod
     def setup_class(cls):
-        cls.driver = Driver.get_driver()
+        cls.driver = Driver().get_driver()
 
     @classmethod
     def teardown_class(cls):
         cls.driver.quit()
-        gevent.sleep(2)
 
     @pytest.fixture(autouse=True)
     def fail_screenshot(self, request):
         yield
         # request.node is an "item" because we use the default
         if request.node.session.testsfailed != 0:
-            Utilities.get_screenshot(self)
-            Utilities.get_html_source(self)
+            Utilities.get_screenshot(self.driver)
+            Utilities.get_html_source(self.driver)
         if not self.properties:
-            Utilities.fix_properties(self)
+            Utilities.fix_properties(self.driver)
             self.properties = True

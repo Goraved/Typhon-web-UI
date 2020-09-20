@@ -14,7 +14,7 @@ export PYTHONPATH
 
 ## Set environment
 ENVIRONMENT=DEV
-RUN_TESTS=
+RUN_TESTS=ui
 pip install -r requirements.txt --quiet
 
 # Run The tests in project folder
