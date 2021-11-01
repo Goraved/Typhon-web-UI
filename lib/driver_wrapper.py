@@ -17,6 +17,7 @@ class Driver:
         options.add_argument('--headless')
         options.add_argument('--disable-dev-shm-usage')
         options.add_experimental_option('w3c', False)
+        options.add_experimental_option('goog:loggingPrefs', {'performance': 'ALL'})
         options.add_argument('--no-sandbox')
         return options
 
@@ -25,18 +26,15 @@ class Driver:
         browser = os.getenv('browser', 'chrome')
         if os.getenv('GITHUB_RUN'):
             options = self.get_chrome_options()
-            capabilities = {'browserName': browser, 'sessionTimeout': '5m', 'goog:loggingPrefs': {'performance': 'ALL'}}
-            capabilities.update(options.to_capabilities())
-            driver = webdriver.Remote(command_executor=os.getenv('SELENIUM_HUB_HOST'),
-                                      desired_capabilities=capabilities)
+            options.add_experimental_option('browserName', browser)
+            options.add_experimental_option('sessionTimeout', '5m')
+            driver = webdriver.Remote(command_executor=os.getenv('SELENIUM_HUB_HOST'), options=options)
             return self.add_driver_settings(driver)
         if browser == 'chrome':
-            capabilities = {}
+            options = Options()
             if os.getenv('HEADLESS', 'false').lower() == 'true' or os.getenv('DOCKER_RUN'):
                 options = self.get_chrome_options()
-                capabilities = {'goog:loggingPrefs': {'performance': 'ALL'}}
-                capabilities.update(options.to_capabilities())
-            driver = webdriver.Chrome(ChromeDriverManager().install(), desired_capabilities=capabilities)
+            driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
         elif browser == 'firefox':
             operation_system = platform.system()
