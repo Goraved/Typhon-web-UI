@@ -17,7 +17,7 @@ class Driver:
         options.add_argument('--headless')
         options.add_argument('--disable-dev-shm-usage')
         options.add_experimental_option('w3c', False)
-        options.add_experimental_option('prefs', {'goog:loggingPrefs', {'performance': 'ALL'}})
+        options.add_experimental_option('prefs', {'goog:loggingPrefs': {'performance': 'ALL'}})
         options.add_argument('--no-sandbox')
         return options
 
