@@ -10,5 +10,5 @@ pytest-xdist
 pyvirtualdisplay
 PyYaml
 requests
-selenium
+selenium==3.141.0
 webdriver-manager
