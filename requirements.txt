@@ -1,7 +1,6 @@
 allure-pytest
 allure-python-commons
 configparser
-gevent
 locust
 pluggy
 py
@@ -11,5 +10,5 @@ pytest-xdist
 pyvirtualdisplay
 PyYaml
 requests
-selenium
+selenium==3.141.0
 webdriver-manager
