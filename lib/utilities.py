@@ -51,14 +51,14 @@ class Utilities:
                         gevent.sleep(wait_interval)  # will be useful in parallel mode
         else:
             os.mkdir(f"{ROOT_DIR}/allure-results")
-        file = open(properties_path, "w+")
-        file.write(f"Environment {os.getenv('ENVIRONMENT', '').upper()}\n")
-        file.write(f"Browser {browser}\n")
-        try:
-            file.write(f"{browser}_VERSION {driver.capabilities['browserVersion']}\n")
-        except KeyError:
-            file.write(f"{browser}_VERSION {driver.capabilities['version']}\n")
-        file.write(f"Git {GITHUB}\n")
-        file.write(f"OS_VERSION {OS_VERSION}\n")
-        file.write(f"SELENIUM_VERSION {selenium.__version__}\n")
-        file.write(f"HEADLESS {os.getenv('HEADLESS')}\n")
+        with open(properties_path, "w+") as file:
+            file.write(f"Environment {os.getenv('ENVIRONMENT', '').upper()}\n")
+            file.write(f"Browser {browser}\n")
+            try:
+                file.write(f"{browser}_VERSION {driver.capabilities['browserVersion']}\n")
+            except KeyError:
+                file.write(f"{browser}_VERSION {driver.capabilities['version']}\n")
+            file.write(f"Git {GITHUB}\n")
+            file.write(f"OS_VERSION {OS_VERSION}\n")
+            file.write(f"SELENIUM_VERSION {selenium.__version__}\n")
+            file.write(f"HEADLESS {os.getenv('HEADLESS')}\n")

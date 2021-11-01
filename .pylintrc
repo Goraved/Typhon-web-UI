@@ -2,7 +2,7 @@
 max-line-length=120
 
 # Docstrings
-disable=C0114,C0115,C0116,R0903
+disable=C0114,C0115,C0116,R0903,W1514,R1720,R1705,R1723
 
 [MASTER]
 init-hook="from pylint.config import find_pylintrc; import os, sys; sys.path.append(os.path.dirname(find_pylintrc()))"
