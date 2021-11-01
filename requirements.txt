@@ -1,7 +1,6 @@
 allure-pytest
 allure-python-commons
 configparser
-gevent
 locust
 pluggy
 py

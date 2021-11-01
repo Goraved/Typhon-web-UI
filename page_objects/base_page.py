@@ -45,10 +45,24 @@ class BasePage:
             self.wait_until_element_is_present(locator, timeout)
         return self.driver.find_elements(*locator)
 
+    # Click on web element
     @allure.step('Click on element - {locator}')
-    def click(self, *locator: tuple):
-        self.wait_until_element_is_clickable(locator)
-        self.find_element(*locator).click()
+    def click(self, *locator: tuple, timeout: float = timeout_sec):
+        self.wait_until_element_is_clickable(locator, timeout=timeout)
+        # Regular click
+        try:
+            self.find_element(*locator).click()
+        except (ElementNotInteractableException, ElementClickInterceptedException, StaleElementReferenceException):
+            # Scroll if not able to click
+            try:
+                self.scroll_element_to_center_by_js(self.find_element(*locator))
+                self.find_element(*locator).click()
+            # Click with JS
+            except (ElementNotInteractableException, ElementClickInterceptedException, StaleElementReferenceException):
+                self.click_element_with_js(self.find_element(*locator))
+        except NoSuchWindowException:
+            self.exit_frame()
+            self.find_element(*locator).click()
 
     # Hove on web element
     @allure.step('Hover on element - {locator}')
@@ -388,6 +402,9 @@ class BasePage:
         self.driver.switch_to.alert.accept()
 
     # -> NAVIGATION
+
+    def exit_frame(self):
+        self.driver.switch_to.default_content()
 
     # Scroll to the top of the page
     def scroll_page_up(self, count: int = 3):
