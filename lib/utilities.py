@@ -3,6 +3,8 @@ import os
 import allure
 import gevent
 import selenium
+from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.chrome.webdriver import WebDriver
 
 from base_definitions import ROOT_DIR
 from configuration.config_parse import GITHUB, OS_VERSION
@@ -10,13 +12,28 @@ from configuration.config_parse import GITHUB, OS_VERSION
 
 class Utilities:
     @staticmethod
-    def get_screenshot(driver):
-        allure.attach(driver.get_screenshot_as_png(), name='failure_screenshot',
-                      attachment_type=allure.attachment_type.PNG)
+    def get_screenshot(driver: WebDriver):
+        if not driver:
+            return
+        try:
+            allure.attach(driver.get_screenshot_as_png(), name='screenshot', attachment_type=allure.attachment_type.PNG)
+        except WebDriverException:
+            pass  # Session timed out
 
     @staticmethod
-    def get_html_source(driver):
-        allure.attach(driver.page_source, name='html_source', attachment_type=allure.attachment_type.HTML)
+    def get_html_source(driver: WebDriver):
+        if not driver:
+            return
+        try:
+            html = driver.page_source
+            if html:
+                allure.attach(html, name='html_source', attachment_type=allure.attachment_type.HTML)
+            console_log = driver.get_log('browser')
+            if console_log:
+                console_text = '\n\n'.join([f'{_["level"]} - {_["message"]}' for _ in console_log])
+                allure.attach(console_text, name='console_log', attachment_type=allure.attachment_type.TEXT)
+        except WebDriverException:
+            pass  # Session timed out
 
     @staticmethod
     def fix_properties(driver):

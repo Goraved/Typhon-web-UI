@@ -26,16 +26,18 @@ class Driver:
         browser = os.getenv('browser', 'chrome')
         if os.getenv('GITHUB_RUN'):
             options = self.get_chrome_options()
-            capabilities = {'browserName': browser, 'sessionTimeout': '5m'}
+            capabilities = {'browserName': browser, 'sessionTimeout': '5m', 'goog:loggingPrefs': {'performance': 'ALL'}}
             capabilities.update(options.to_capabilities())
             driver = webdriver.Remote(command_executor=os.getenv('SELENIUM_HUB_HOST'),
                                       desired_capabilities=capabilities)
             return self.add_driver_settings(driver)
         if browser == 'chrome':
-            options = Options()
+            capabilities = {}
             if os.getenv('HEADLESS', 'false').lower() == 'true' or os.getenv('DOCKER_RUN'):
                 options = self.get_chrome_options()
-            driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+                capabilities = {'goog:loggingPrefs': {'performance': 'ALL'}}
+                capabilities.update(options.to_capabilities())
+            driver = webdriver.Chrome(ChromeDriverManager().install(), desired_capabilities=capabilities)
 
         elif browser == 'firefox':
             operation_system = platform.system()
@@ -59,7 +61,6 @@ class Driver:
 
     @staticmethod
     def add_driver_settings(driver):
-        gevent.sleep(1)
         driver.implicitly_wait(IMPLICIT_SEC)
         driver.set_page_load_timeout(30)
         driver.maximize_window()
