@@ -1,8 +1,8 @@
 .DS_Store
 .idea/
 ./screenshots/*
-./allure_reports/archive/*
-./allure_reports/history/*
-allure_reports/
+./allure-results/archive/*
+./allure-results/history/*
+allure-results/
 !.gitignore
 *.pyc
