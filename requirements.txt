@@ -1,10 +1,10 @@
 allure-pytest
 allure-python-commons
 configparser
-locust
+# locust
 pluggy
 py
-pylint-fail-under
+pylint
 pytest
 pytest-xdist
 pyvirtualdisplay
