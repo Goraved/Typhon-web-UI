@@ -1,7 +1,7 @@
 import os
+import time
 
 import allure
-import gevent
 import selenium
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.webdriver import WebDriver
@@ -48,7 +48,7 @@ class Utilities:
                         os.remove(properties_path)
                         break
                     except FileNotFoundError:
-                        gevent.sleep(wait_interval)  # will be useful in parallel mode
+                        time.sleep(wait_interval)  # will be useful in parallel mode
         else:
             os.mkdir(f"{ROOT_DIR}/allure-results")
         with open(properties_path, "w+") as file:

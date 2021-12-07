@@ -1,7 +1,7 @@
 allure-pytest
 allure-python-commons
 configparser
-# locust
+locust
 pluggy
 py
 pylint

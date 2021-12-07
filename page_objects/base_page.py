@@ -300,11 +300,6 @@ class BasePage:
     def get_parametrized_locator(locator, parameter):
         return locator[0], locator[1].format(*parameter)
 
-    @allure.step('Get attribute "{attribute}" value of element - {locator}')
-    def get_attribute_value(self, attribute: str, *locator: tuple):
-        element = self.find_element(*locator)
-        return element.get_attribute(attribute)
-
     @allure.step('Get options in the dropdown with the lazy loading')
     def get_all_options_from_lazy_loading_select(self, options_locator: tuple, wait: bool = True) -> List[str]:
         # For animation
