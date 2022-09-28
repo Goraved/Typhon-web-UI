@@ -1,34 +1,83 @@
 from selenium.webdriver.common.by import By
 
+from lib.elemets.base_element import BaseElement
 from page_objects.base_page import BasePage
-from page_objects.shop.shop_locators import ShopLocators
 
 
 class ShopPage(BasePage):
+    @property
+    def t_shirt_category_btn(self) -> BaseElement:
+        return BaseElement((By.CSS_SELECTOR, 'li:nth-child(3) > a[title="T-shirts"]'))
+
+    @property
+    def item_name_lbl(self) -> BaseElement:
+        return BaseElement((By.CSS_SELECTOR, '[itemprop="name"]'))
+
+    @property
+    def add_to_cart_btn(self) -> BaseElement:
+        return BaseElement((By.XPATH, '//a/span[text()="Add to cart"]'))
+
+    @property
+    def proceed_to_checkout_btn(self) -> BaseElement:
+        return BaseElement((By.CSS_SELECTOR, '[title="Proceed to checkout"]'))
+
+    @property
+    def second_cart_step_btn(self) -> BaseElement:
+        return BaseElement(
+            (
+                By.CSS_SELECTOR,
+                "p > a.button.btn.btn-default.standard-checkout.button-medium",
+            )
+        )
+
+    @property
+    def terms_checkbox(self) -> BaseElement:
+        return BaseElement((By.XPATH, '//div[@id="uniform-cgv"]'))
+
+    @property
+    def pay_with_bank_btn(self) -> BaseElement:
+        return BaseElement((By.CSS_SELECTOR, '[title="Pay by bank wire"]'))
+
+    @property
+    def confirm_order_btn(self) -> BaseElement:
+        return BaseElement((By.CSS_SELECTOR, "#cart_navigation > button"))
+
+    @property
+    def profile_btn(self) -> BaseElement:
+        return BaseElement((By.CSS_SELECTOR, '[title="View my customer account"]'))
+
+    @property
+    def orders_btn(self) -> BaseElement:
+        return BaseElement((By.CSS_SELECTOR, '[title="Orders"]'))
+
+    @property
+    def order_row(self) -> BaseElement:
+        return BaseElement((By.CSS_SELECTOR, "#order-list > tbody > tr"))
+
     def open_site(self):
         self.open()
 
     def open_t_shirt_category(self):
-        self.click(*ShopLocators.T_SHIRT_CATEGORY_BTN)
+        self.t_shirt_category_btn.click()
 
     def add_item_to_cart_and_proceed(self):
-        self.hover(*ShopLocators.ITEM_NAME_LBL)
-        self.click(*ShopLocators.ADD_TO_CART_BTN)
-        self.click(*ShopLocators.PROCEED_TO_CHECKOUT_BTN)
+        self.item_name_lbl.hover()
+        self.add_to_cart_btn.click()
+        self.proceed_to_checkout_btn.click()
 
     def go_to_the_second_cart_step(self):
-        self.click(*ShopLocators.SECOND_CART_STEP_BTN)
+        self.second_cart_step_btn.click()
 
     def finish_order_after_registration(self):
-        self.click(*(By.CSS_SELECTOR, '#center_column > form > p > button'))
-        self.click(*ShopLocators.TERMS_CHECKBOX)
-        self.click(*(By.CSS_SELECTOR, '#form > p > button'))
-        self.click(*ShopLocators.PAY_WITH_BANK_BTN)
-        self.click(*ShopLocators.CONFIRM_ORDER_BTN)
+        BaseElement((By.CSS_SELECTOR, "#center_column > form > p > button")).click()
+        self.terms_checkbox.click()
+        BaseElement((By.CSS_SELECTOR, "#form > p > button")).click()
+        self.pay_with_bank_btn.click()
+        self.confirm_order_btn.click()
 
     def open_profile_order_page(self):
-        self.click(*ShopLocators.PROFILE_BTN)
-        self.click(*ShopLocators.ORDERS_BTN)
+        self.profile_btn.click()
+        self.orders_btn.click()
 
-    def is_order_present(self):
-        return self.is_element_present(*ShopLocators.ORDER_ROW)
+    def is_order_present(self) -> bool:
+        return self.order_row.is_present

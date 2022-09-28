@@ -10,5 +10,5 @@ class TestShopBase(TestBase):
     @classmethod
     def setup_class(cls):
         super(TestShopBase, cls).setup_class()
-        cls.shop_page = ShopPage(cls.driver)
-        cls.registration_page = RegistrationPage(cls.driver)
+        cls.shop_page = ShopPage()
+        cls.registration_page = RegistrationPage()
