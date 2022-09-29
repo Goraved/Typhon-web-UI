@@ -1,10 +1,10 @@
 from random import randint
 
-from page_objects.base_page import BasePage
+from lib.selenium_driver import Driver
 from page_objects.registation.registration_locators import RegistrationLocators
 
 
-class RegistrationPage(BasePage):
+class RegistrationPage(Driver):
     def register_account(self):
         self.type(f'goraved@{randint(1000, 99999)}.com', *RegistrationLocators.EMAIL_INPUT)
         self.click(*RegistrationLocators.CREATE_BTN)

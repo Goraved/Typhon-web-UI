@@ -1,6 +1,6 @@
 import pytest
 
-from lib.driver_wrapper import Driver
+from lib.driver_wrapper import DriverManager
 from lib.utilities import Utilities
 
 
@@ -10,7 +10,7 @@ class TestBase:
 
     @classmethod
     def setup_class(cls):
-        cls.driver = Driver().get_driver()
+        cls.driver = DriverManager().set_driver()
 
     @classmethod
     def teardown_class(cls):
